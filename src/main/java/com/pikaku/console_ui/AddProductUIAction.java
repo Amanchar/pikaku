@@ -3,13 +3,16 @@ package com.pikaku.console_ui;
 import com.pikaku.core.requests.AddProductRequest;
 import com.pikaku.core.responses.AddProductResponse;
 import com.pikaku.core.services.AddProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.util.Scanner;
 
+@Component
 public class AddProductUIAction implements UIAction {
 
-	private final AddProductService addProductService;
+	@Autowired private final AddProductService addProductService;
 
 
 	public AddProductUIAction (AddProductService addProductService) {

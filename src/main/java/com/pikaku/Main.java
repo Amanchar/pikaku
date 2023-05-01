@@ -1,12 +1,16 @@
 package com.pikaku;
 
+import com.pikaku.config.PikakuConfig;
 import com.pikaku.console_ui.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.Scanner;
 
 public class Main {
 
-	private static final ApplicationContext context = new ApplicationContext ();
+	private static final ApplicationContext context =
+			new AnnotationConfigApplicationContext (PikakuConfig.class);
 
 	public static void main (String[] args) {
 		while (true) {

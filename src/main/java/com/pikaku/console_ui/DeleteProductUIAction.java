@@ -3,12 +3,15 @@ package com.pikaku.console_ui;
 import com.pikaku.core.requests.DeleteProductRequest;
 import com.pikaku.core.responses.DeleteProductResponse;
 import com.pikaku.core.services.DeleteProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
+@Component
 public class DeleteProductUIAction implements UIAction {
 
-	private final DeleteProductService deleteProductService;
+	@Autowired private final DeleteProductService deleteProductService;
 
 
 	public DeleteProductUIAction (DeleteProductService deleteProductService) {

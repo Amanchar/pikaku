@@ -2,10 +2,12 @@ package com.pikaku.core.services.validators;
 
 import com.pikaku.core.requests.DeleteProductRequest;
 import com.pikaku.core.domain.CoreError;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class DeleteProductValidator {
 
 	public List<CoreError> validate (DeleteProductRequest request) {
@@ -23,4 +25,5 @@ public class DeleteProductValidator {
 
 		return errors;
 	}
+
 }

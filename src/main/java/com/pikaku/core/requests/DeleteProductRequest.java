@@ -9,5 +9,7 @@ import lombok.*;
 @EqualsAndHashCode
 @ToString
 public class DeleteProductRequest {
+
 	private Long id;
+
 }

@@ -1,15 +1,16 @@
 package com.pikaku.core.services.validators;
 
 import com.pikaku.core.domain.CoreError;
-import com.pikaku.core.requests.DeleteProductRequest;
-import com.pikaku.core.requests.GetProductRequest;
+import com.pikaku.core.requests.ProductRequest;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class GetProductValidator {
 
-	public List<CoreError> validate (GetProductRequest request) {
+	public List<CoreError> validate (ProductRequest request) {
 		List<CoreError> errors = new ArrayList<> ();
 
 		if (request.getId () == null) {
@@ -24,4 +25,5 @@ public class GetProductValidator {
 
 		return errors;
 	}
+
 }

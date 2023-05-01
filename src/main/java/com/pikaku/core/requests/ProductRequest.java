@@ -8,6 +8,8 @@ import lombok.*;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class GetProductRequest {
+public class ProductRequest {
+
 	private Long id;
+
 }

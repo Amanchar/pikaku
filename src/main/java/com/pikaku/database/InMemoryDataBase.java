@@ -1,13 +1,14 @@
 package com.pikaku.database;
 
 import com.pikaku.core.domain.Product;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
+@Component
 public class InMemoryDataBase implements DataBase {
 
 	private static Long nextId = 1L;

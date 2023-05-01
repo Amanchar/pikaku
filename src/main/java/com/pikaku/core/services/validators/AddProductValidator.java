@@ -3,11 +3,13 @@ package com.pikaku.core.services.validators;
 import com.pikaku.core.requests.AddProductRequest;
 import com.pikaku.core.domain.CoreError;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class AddProductValidator {
 
 	public List<CoreError> validate (AddProductRequest request) {
@@ -35,4 +37,5 @@ public class AddProductValidator {
 
 		return errors;
 	}
+
 }

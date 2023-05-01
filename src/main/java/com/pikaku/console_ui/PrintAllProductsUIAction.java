@@ -1,12 +1,16 @@
 package com.pikaku.console_ui;
 
-import com.pikaku.core.requests.GetProductRequest;
-import com.pikaku.core.responses.GetProductResponse;
+import com.pikaku.core.requests.PrintAllRequest;
+import com.pikaku.core.requests.ProductRequest;
+import com.pikaku.core.responses.ProductResponse;
 import com.pikaku.core.services.PrintAllProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PrintAllProductsUIAction implements UIAction {
 
-	private final PrintAllProductService printAllProductService;
+	@Autowired private final PrintAllProductService printAllProductService;
 
 
 	public PrintAllProductsUIAction (PrintAllProductService printAllProductService) {
@@ -15,11 +19,10 @@ public class PrintAllProductsUIAction implements UIAction {
 
 	@Override
 	public void execute () {
-		GetProductRequest request = new GetProductRequest (-1L);
-		GetProductResponse response = printAllProductService.execute (request);
+		ProductResponse response = printAllProductService.execute (new PrintAllRequest ());
 		if (response.hasErrors ())
 			response.getErrors ().forEach (System.out::println);
 		else
-			response.getProductList ().forEach (System.out::println);
+			response.getProducts ().forEach (System.out::println);
 	}
 }

@@ -5,13 +5,16 @@ import com.pikaku.core.services.validators.DeleteProductValidator;
 import com.pikaku.database.DataBase;
 import com.pikaku.core.requests.DeleteProductRequest;
 import com.pikaku.core.responses.DeleteProductResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class DeleteProductService {
 
-	private final DataBase dataBase;
-	private final DeleteProductValidator validator;
+	@Autowired private final DataBase dataBase;
+	@Autowired private final DeleteProductValidator validator;
 
 
 	public DeleteProductService (DataBase dataBase, DeleteProductValidator validator) {

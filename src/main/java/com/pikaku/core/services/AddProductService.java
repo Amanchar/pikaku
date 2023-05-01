@@ -6,13 +6,16 @@ import com.pikaku.core.responses.AddProductResponse;
 import com.pikaku.core.services.validators.AddProductValidator;
 import com.pikaku.core.domain.CoreError;
 import com.pikaku.core.domain.Product;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class AddProductService {
 
-	private final DataBase dataBase;
-	private final AddProductValidator validator;
+	@Autowired private final DataBase dataBase;
+	@Autowired private final AddProductValidator validator;
 
 
 	public AddProductService (DataBase dataBase,

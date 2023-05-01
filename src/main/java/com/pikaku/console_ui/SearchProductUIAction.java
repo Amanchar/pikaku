@@ -1,14 +1,17 @@
 package com.pikaku.console_ui;
 
-import com.pikaku.core.requests.GetProductRequest;
-import com.pikaku.core.responses.GetProductResponse;
+import com.pikaku.core.requests.ProductRequest;
+import com.pikaku.core.responses.ProductResponse;
 import com.pikaku.core.services.GetProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
+@Component
 public class SearchProductUIAction implements UIAction {
 
-	private final GetProductService getProductService;
+	@Autowired private final GetProductService getProductService;
 
 	public SearchProductUIAction (GetProductService getProductService) {
 		this.getProductService = getProductService;
@@ -20,12 +23,12 @@ public class SearchProductUIAction implements UIAction {
 		System.out.println ("Enter product id: ");
 		Long productId = scanner.nextLong ();
 
-		GetProductRequest request = new GetProductRequest (productId);
-		GetProductResponse response = getProductService.execute (request);
+		ProductRequest request = new ProductRequest (productId);
+		ProductResponse response = getProductService.execute (request);
 
 		if (response.hasErrors ())
 			response.getErrors ().forEach (System.out::println);
 		else
-			System.out.println (response.getProductList ());
+			System.out.println (response.getProducts ());
 	}
 }
