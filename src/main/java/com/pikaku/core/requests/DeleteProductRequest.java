@@ -8,8 +8,8 @@ import lombok.*;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class DeleteProductRequest {
-
+public class DeleteProductRequest
+{
 	private Long id;
 
 }

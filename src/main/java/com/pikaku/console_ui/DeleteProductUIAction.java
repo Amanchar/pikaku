@@ -9,17 +9,19 @@ import org.springframework.stereotype.Component;
 import java.util.Scanner;
 
 @Component
-public class DeleteProductUIAction implements UIAction {
-
+public class DeleteProductUIAction implements UIAction
+{
 	@Autowired private final DeleteProductService deleteProductService;
 
 
-	public DeleteProductUIAction (DeleteProductService deleteProductService) {
+	public DeleteProductUIAction (DeleteProductService deleteProductService)
+	{
 		this.deleteProductService = deleteProductService;
 	}
 
 	@Override
-	public void execute () {
+	public void execute ()
+	{
 		System.out.println ("Enter product id: ");
 		Scanner scanner = new Scanner (System.in);
 		Long productId = scanner.nextLong ();
@@ -32,4 +34,5 @@ public class DeleteProductUIAction implements UIAction {
 		else
 			System.out.printf ("Product with Id %d%n was deleted\n", productId);
 	}
+
 }

@@ -5,5 +5,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan (basePackages = "com.pikaku")
-public class PikakuConfig {
+public class PikakuConfig
+{
 }

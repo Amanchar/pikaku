@@ -13,24 +13,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class GetProductService {
-
+public class GetProductService
+{
 	@Autowired private final DataBase dataBase;
 	@Autowired private final GetProductValidator validator;
 
 
-	public GetProductService (DataBase dataBase, GetProductValidator validator) {
+	public GetProductService (DataBase dataBase, GetProductValidator validator)
+	{
 		this.dataBase = dataBase;
 		this.validator = validator;
 	}
 
-	public ProductResponse execute (ProductRequest request) {
+	public ProductResponse execute (final ProductRequest request)
+	{
 		List<CoreError> errors;
 		if ((errors = validator.validate (request)).size () > 0)
 			return new ProductResponse (errors, null);
 
 		Product product = dataBase.getBy (request.getId ());
-		if (product == null) {
+		if (product == null)
+		{
 			errors = new ArrayList<> ();
 			errors.add (new CoreError ("id", "no such product"));
 			return new ProductResponse (errors, null);
@@ -38,4 +41,5 @@ public class GetProductService {
 
 		return new ProductResponse (errors, List.of (product));
 	}
+
 }

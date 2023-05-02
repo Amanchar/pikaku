@@ -12,11 +12,13 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public abstract class ResponseBase {
-
+public abstract class ResponseBase
+{
 	private List<CoreError> errors;
 
-	public boolean hasErrors () {
+	public boolean hasErrors ()
+	{
 		return errors != null && errors.size () > 0;
 	}
+
 }

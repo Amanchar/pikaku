@@ -12,28 +12,29 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class AddProductService {
-
+public class AddProductService
+{
 	@Autowired private final DataBase dataBase;
 	@Autowired private final AddProductValidator validator;
 
 
 	public AddProductService (DataBase dataBase,
-							  AddProductValidator validator) {
+							  AddProductValidator validator)
+	{
 		this.dataBase = dataBase;
 		this.validator = validator;
 	}
 
-	public AddProductResponse execute (final AddProductRequest request) {
+	public AddProductResponse execute (final AddProductRequest request)
+	{
 		List<CoreError> errors;
 
 		if ((errors = validator.validate (request)).size () > 0)
 			return new AddProductResponse (errors);
 
-		Product product = new Product (request.getTitle (), request.getPrice ());
-
-		dataBase.add (product);
+		dataBase.add (new Product (request.getTitle (), request.getPrice ()));
 
 		return new AddProductResponse ();
 	}
+
 }

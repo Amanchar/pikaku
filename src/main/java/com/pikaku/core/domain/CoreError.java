@@ -8,8 +8,8 @@ import lombok.*;
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class CoreError {
-
+public class CoreError
+{
 	private String field;
 	private String message;
 }

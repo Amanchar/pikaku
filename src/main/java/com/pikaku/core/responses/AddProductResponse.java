@@ -6,9 +6,11 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @NoArgsConstructor
-public class AddProductResponse extends ResponseBase {
-
-	public AddProductResponse (List<CoreError> errors) {
+public class AddProductResponse extends ResponseBase
+{
+	public AddProductResponse (List<CoreError> errors)
+	{
 		super (errors);
 	}
+
 }

@@ -1,4 +1,5 @@
 package com.pikaku.core.requests;
 
-public class PrintAllRequest {
+public class PrintAllRequest
+{
 }

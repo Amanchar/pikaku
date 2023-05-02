@@ -10,17 +10,19 @@ import java.math.BigDecimal;
 import java.util.Scanner;
 
 @Component
-public class AddProductUIAction implements UIAction {
-
+public class AddProductUIAction implements UIAction
+{
 	@Autowired private final AddProductService addProductService;
 
 
-	public AddProductUIAction (AddProductService addProductService) {
+	public AddProductUIAction (AddProductService addProductService)
+	{
 		this.addProductService = addProductService;
 	}
 
 	@Override
-	public void execute () {
+	public void execute ()
+	{
 		Scanner scanner = new Scanner (System.in);
 		System.out.println ("Enter product title: ");
 		String productTitle = scanner.nextLine ();
@@ -33,4 +35,5 @@ public class AddProductUIAction implements UIAction {
 		if (response.hasErrors ())
 			response.getErrors ().forEach (System.out::println);
 	}
+
 }

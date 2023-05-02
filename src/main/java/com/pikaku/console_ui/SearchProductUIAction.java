@@ -9,16 +9,18 @@ import org.springframework.stereotype.Component;
 import java.util.Scanner;
 
 @Component
-public class SearchProductUIAction implements UIAction {
-
+public class SearchProductUIAction implements UIAction
+{
 	@Autowired private final GetProductService getProductService;
 
-	public SearchProductUIAction (GetProductService getProductService) {
+	public SearchProductUIAction (GetProductService getProductService)
+	{
 		this.getProductService = getProductService;
 	}
 
 	@Override
-	public void execute () {
+	public void execute ()
+	{
 		Scanner scanner = new Scanner (System.in);
 		System.out.println ("Enter product id: ");
 		Long productId = scanner.nextLong ();
@@ -31,4 +33,5 @@ public class SearchProductUIAction implements UIAction {
 		else
 			System.out.println (response.getProducts ());
 	}
+
 }

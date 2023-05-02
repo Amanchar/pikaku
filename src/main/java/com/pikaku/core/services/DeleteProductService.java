@@ -11,19 +11,22 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class DeleteProductService {
-
+public class DeleteProductService
+{
 	@Autowired private final DataBase dataBase;
 	@Autowired private final DeleteProductValidator validator;
 
 
-	public DeleteProductService (DataBase dataBase, DeleteProductValidator validator) {
+	public DeleteProductService (DataBase dataBase, DeleteProductValidator validator)
+	{
 		this.dataBase = dataBase;
 		this.validator = validator;
 	}
 
-	public DeleteProductResponse execute (DeleteProductRequest request) {
+	public DeleteProductResponse execute (final DeleteProductRequest request)
+	{
 		List<CoreError> errors;
+
 		if ((errors = validator.validate (request)).size () > 0)
 			return new DeleteProductResponse (errors);
 
@@ -31,4 +34,5 @@ public class DeleteProductService {
 
 		return new DeleteProductResponse ();
 	}
+
 }

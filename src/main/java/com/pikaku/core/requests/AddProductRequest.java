@@ -9,7 +9,8 @@ import java.math.BigDecimal;
 @Setter
 @EqualsAndHashCode
 @ToString
-public class AddProductRequest {
+public class AddProductRequest
+{
 	private String title;
 	private BigDecimal price;
 }

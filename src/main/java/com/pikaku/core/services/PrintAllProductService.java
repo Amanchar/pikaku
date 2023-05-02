@@ -11,17 +11,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class PrintAllProductService {
-
+public class PrintAllProductService
+{
 	@Autowired private final DataBase dataBase;
 
 
-	public PrintAllProductService (DataBase dataBase) {
+	public PrintAllProductService (DataBase dataBase)
+	{
 		this.dataBase = dataBase;
 	}
 
-	public ProductResponse execute (PrintAllRequest request) {
-		if (request == null) {
+	public ProductResponse execute (final PrintAllRequest request)
+	{
+		if (request == null)
+		{
 			CoreError error = new CoreError ("null", "no request");
 
 			List<CoreError> errors = new ArrayList<> ();
@@ -31,4 +34,5 @@ public class PrintAllProductService {
 		}
 		return new ProductResponse (new ArrayList<> (), dataBase.getAll ());
 	}
+
 }
